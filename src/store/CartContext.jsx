@@ -50,3 +50,5 @@ export function CartContextProvider({ children }) {
     <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>
   );
 }
+
+export default CartContext;
