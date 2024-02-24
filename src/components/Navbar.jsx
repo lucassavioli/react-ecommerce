@@ -5,13 +5,13 @@ export default function Navbar() {
     <header class="mb-8 border-b">
     <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 md:px-8">
       { /* logo - start */ }
-      <a href="/" class="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl" aria-label="logo">
+      <Link to={"/"} class="inline-flex items-center gap-2.5 text-2xl font-bold text-black md:text-3xl" aria-label="logo">
         <svg width="95" height="94" viewBox="0 0 95 94" class="h-auto w-6 text-indigo-500" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
           <path d="M96 0V47L48 94H0V47L48 0H96Z" />
         </svg>
 
         Flowrift
-      </a>
+      </Link>
       { /* logo - end */}
 
       { /* nav - start */}
@@ -41,13 +41,13 @@ export default function Navbar() {
           <span class="hidden text-xs font-semibold text-gray-500 sm:block">Account</span>
         </a>
 
-        <a href="#" class="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
+        <Link to={"cart"} class="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
 
           <span class="hidden text-xs font-semibold text-gray-500 sm:block">Cart</span>
-        </a>
+        </Link>
 
         <button type="button" class="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:hidden">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800" viewBox="0 0 20 20" fill="currentColor">
