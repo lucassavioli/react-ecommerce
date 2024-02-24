@@ -1,4 +1,4 @@
-export default function CartItem({ item }) {
+export default function CartItem({ item, onIncrease }) {
     return (
         <div class="flex flex-wrap gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">
             <a
@@ -55,12 +55,12 @@ export default function CartItem({ item }) {
                 <div class="flex h-12 w-20 overflow-hidden rounded border">
                   <input
                     type="number"
-                    value="1"
+                    value={item.quantity}
                     class="w-full px-4 py-2 outline-none ring-inset ring-indigo-300 transition duration-100 focus:ring"
                   />
 
                   <div class="flex flex-col divide-y border-l">
-                    <button class="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
+                    <button type="button" onClick={onIncrease} class="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
                       +
                     </button>
                     <button class="flex w-6 flex-1 select-none items-center justify-center bg-white leading-none transition duration-100 hover:bg-gray-100 active:bg-gray-200">
