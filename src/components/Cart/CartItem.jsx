@@ -53,8 +53,7 @@ export default function CartItem({ item, onIncrease }) {
             <div class="flex w-full justify-between border-t p-4 sm:w-auto sm:border-none sm:pl-0 lg:p-6 lg:pl-0">
               <div class="flex flex-col items-start gap-2">
                 <div class="flex h-12 w-20 overflow-hidden rounded border">
-                  <input
-                    type="number"
+                  <input                    
                     value={item.quantity}
                     class="w-full px-4 py-2 outline-none ring-inset ring-indigo-300 transition duration-100 focus:ring"
                   />
