@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
+import firstLetterUppercase from "../util/formatters";
+
 export default function ProductDetail() {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -52,7 +54,7 @@ export default function ProductDetail() {
       <div class="md:py-8">
         
         <div class="mb-2 md:mb-3">
-          <span class="mb-0.5 inline-block text-gray-500">{data.category}</span>
+          <span class="mb-0.5 inline-block text-gray-500">{firstLetterUppercase(data.category)}</span>
           <h2 class="text-2xl font-bold text-gray-800 lg:text-3xl">{data.title}</h2>
         </div>
         
