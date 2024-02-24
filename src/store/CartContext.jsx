@@ -2,9 +2,7 @@ import { createContext, useReducer } from "react";
 
 const CartContext = createContext({
   items: [],
-  addItem: (item) => {},
-  removeItem: (id) => {},
-  clearCart: () => {},
+  addItem: (item) => {}
 });
 
 function cartReducer(state, action) {
@@ -12,12 +10,14 @@ function cartReducer(state, action) {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
+    
     // copy the array to avoid directly mutating the original state
     const updatedItems = [...state.items];
+
     // Update the quantity of existing item or add new
     if (existingCartItemIndex > -1) {
-      existingItem = state.items[existingCartItemIndex];
-      updatedItem = {
+      const existingItem = state.items[existingCartItemIndex];
+      const updatedItem = {
         ...existingItem,
         quantity: existingItem.quantity + 1,
       };
@@ -25,9 +25,12 @@ function cartReducer(state, action) {
     } else {
       updatedItems.push({ ...action.item, quantity: 1 });
     }
+    console.log(updatedItems); 
+    //  returns a new state object where the items array is updated
+    return { ...state, items: updatedItems };
   }
-  //  returns a new state object where the items array is updated
-  return { ...state, items: updatedItems };
+
+  return state;
 }
 
 export function CartContextProvider({ children }) {
