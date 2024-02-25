@@ -44,7 +44,7 @@ function cartReducer(state, action) {
     } else {
       const updatedItem = {
         ...existingCartItem,
-        quantity: existingItem.quantity - 1,
+        quantity: existingCartItem.quantity - 1,
       };
       updatedItems[existingCartItemIndex] = updatedItem;
     }

@@ -3,7 +3,6 @@ import CartContext from "../store/CartContext";
 import CartItem from "../components/Cart/CartItem";
 
 export default function Cart() {
-
   const cartCtx = useContext(CartContext);
 
   return (
@@ -17,7 +16,12 @@ export default function Cart() {
 
         <div class="mb-6 flex flex-col gap-4 sm:mb-8 md:gap-6">
           {cartCtx.items.map((item) => (
-            <CartItem key={item.id} item={item} onIncrease={() => cartCtx.addItem(item)} />
+            <CartItem
+              key={item.id}
+              item={item}
+              onIncrease={() => cartCtx.addItem(item)}
+              onDecrease={() => cartCtx.removeItem(item.id)}
+            />
           ))}
         </div>
 
