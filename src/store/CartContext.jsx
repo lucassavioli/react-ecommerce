@@ -2,7 +2,8 @@ import { createContext, useReducer } from "react";
 
 const CartContext = createContext({
   items: [],
-  addItem: (item) => {}
+  addItem: (item) => {},
+  removeItem: (id) => {},
 });
 
 function cartReducer(state, action) {
@@ -10,7 +11,7 @@ function cartReducer(state, action) {
     const existingCartItemIndex = state.items.findIndex(
       (item) => item.id === action.item.id
     );
-    
+
     // copy the array to avoid directly mutating the original state
     const updatedItems = [...state.items];
 
@@ -25,8 +26,29 @@ function cartReducer(state, action) {
     } else {
       updatedItems.push({ ...action.item, quantity: 1 });
     }
-    console.log(updatedItems); 
+
     //  returns a new state object where the items array is updated
+    return { ...state, items: updatedItems };
+  }
+
+  if (action.type === "REMOVE_ITEM") {
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    );
+    const existingCartItem = state.items[existingCartItemIndex];
+
+    const updatedItems = [...state.items];
+
+    if (existingCartItemIndex === 1) {
+      updatedItems.pop();
+    } else {
+      const updatedItem = {
+        ...existingCartItem,
+        quantity: existingItem.quantity - 1,
+      };
+      updatedItems[existingCartItemIndex] = updatedItem;
+    }
+    console.log(updatedItems);
     return { ...state, items: updatedItems };
   }
 
@@ -40,9 +62,14 @@ export function CartContextProvider({ children }) {
     dispatchCartAction({ type: "ADD_ITEM", item });
   }
 
+  function removeItem(id) {
+    dispatchCartAction({ type: "REMOVE_ITEM", id });
+  }
+
   const cartContext = {
     items: cart.items,
     addItem,
+    removeItem,
   };
 
   return (
