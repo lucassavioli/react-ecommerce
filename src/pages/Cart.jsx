@@ -21,6 +21,7 @@ export default function Cart() {
               item={item}
               onIncrease={() => cartCtx.addItem(item)}
               onDecrease={() => cartCtx.removeItem(item.id)}
+              onDelete={() => cartCtx.deleteItem(item.id)}
             />
           ))}
         </div>

@@ -4,6 +4,9 @@ const CartContext = createContext({
   items: [],
   addItem: (item) => {},
   removeItem: (id) => {},
+  clearCart: () => {},
+  deleteItem: (id) => {},
+  
 });
 
 function cartReducer(state, action) {
@@ -48,7 +51,20 @@ function cartReducer(state, action) {
       };
       updatedItems[existingCartItemIndex] = updatedItem;
     }
-    console.log(updatedItems);
+    return { ...state, items: updatedItems };
+  }
+
+  if (action.type === "CLEAR_CART") {
+    return { ...state, items: [] };
+  }
+
+  if (action.type === "DELETE_ITEM") {
+    const existingCartItemIndex = state.items.findIndex(
+      (item) => item.id === action.id
+    );
+
+    const updatedItems = [...state.items];
+    updatedItems.splice(existingCartItemIndex, 1);
     return { ...state, items: updatedItems };
   }
 
@@ -66,10 +82,20 @@ export function CartContextProvider({ children }) {
     dispatchCartAction({ type: "REMOVE_ITEM", id });
   }
 
+  function clearCart() {
+    dispatchCartAction({ type: "CLEAR_CART" });
+  }
+
+  function deleteItem(id) {
+    dispatchCartAction({ type: "DELETE_ITEM", id });
+  }
+
   const cartContext = {
     items: cart.items,
     addItem,
     removeItem,
+    clearCart,
+    deleteItem,
   };
 
   return (
