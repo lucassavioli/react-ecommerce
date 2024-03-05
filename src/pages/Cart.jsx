@@ -31,7 +31,7 @@ export default function Cart() {
             <div class="space-y-1">
               <div class="flex justify-between gap-4 text-gray-500">
                 <span>Subtotal</span>
-                <span>$129.99</span>
+                <span>${cartCtx.totalAmount}</span>
               </div>
 
               <div class="flex justify-between gap-4 text-gray-500">
