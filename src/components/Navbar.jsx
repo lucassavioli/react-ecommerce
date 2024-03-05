@@ -1,6 +1,11 @@
 import { Link } from "react-router-dom"
+import { useContext } from "react"
+import CartContext from "../store/CartContext"
 
 export default function Navbar() {
+
+  const cartCtx = useContext(CartContext);
+  
   return (
     <header class="mb-8 border-b">
     <div class="mx-auto flex max-w-screen-2xl items-center justify-between px-4 md:px-8">
@@ -45,7 +50,7 @@ export default function Navbar() {
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
           </svg>
 
-          <span class="hidden text-xs font-semibold text-gray-500 sm:block">Cart</span>
+          <span class="hidden text-xs font-semibold text-gray-500 sm:block">Cart {cartCtx.totalQuantity > 0 ? `(${cartCtx.totalQuantity})` : "" }</span>
         </Link>
 
         <button type="button" class="flex h-12 w-12 flex-col items-center justify-center gap-1.5 transition duration-100 hover:bg-gray-100 active:bg-gray-200 sm:h-20 sm:w-20 md:h-24 md:w-24 lg:hidden">

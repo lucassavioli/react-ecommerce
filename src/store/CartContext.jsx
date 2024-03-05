@@ -5,8 +5,7 @@ const CartContext = createContext({
   addItem: (item) => {},
   removeItem: (id) => {},
   clearCart: () => {},
-  deleteItem: (id) => {},
-  
+  deleteItem: (id) => {},  
 });
 
 function cartReducer(state, action) {
@@ -73,6 +72,7 @@ function cartReducer(state, action) {
 
 export function CartContextProvider({ children }) {
   const [cart, dispatchCartAction] = useReducer(cartReducer, { items: [] });
+  const totalQuantity = cart.items.reduce((total, item) => total + item.quantity, 0);
 
   function addItem(item) {
     dispatchCartAction({ type: "ADD_ITEM", item });
@@ -96,8 +96,9 @@ export function CartContextProvider({ children }) {
     removeItem,
     clearCart,
     deleteItem,
+    totalQuantity,  
   };
-
+  
   return (
     <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>
   );
