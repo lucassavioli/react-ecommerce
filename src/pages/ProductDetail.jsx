@@ -29,7 +29,7 @@ export default function ProductDetail() {
         }
         const jsonData = await response.json();
         setData(jsonData);
-        console.log(data);
+        
       } catch (error) {
         setError(error);
       } finally {

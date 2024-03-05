@@ -4,7 +4,7 @@ import CartItem from "../components/Cart/CartItem";
 
 export default function Cart() {
   const cartCtx = useContext(CartContext);
-
+  console.log(cartCtx.items);
   return (
     <div class="bg-white py-6 sm:py-8 lg:py-12">
       <div class="mx-auto max-w-screen-lg px-4 md:px-8">
@@ -18,7 +18,7 @@ export default function Cart() {
           {cartCtx.items.map((item) => (
             <CartItem
               key={item.id}
-              item={item}
+              item={item}              
               onIncrease={() => cartCtx.addItem(item)}
               onDecrease={() => cartCtx.removeItem(item.id)}
               onDelete={() => cartCtx.deleteItem(item.id)}

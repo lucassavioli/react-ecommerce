@@ -75,7 +75,7 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
 
               <div class="ml-4 pt-3 md:ml-8 md:pt-2 lg:ml-16">
                 <span class="block font-bold text-gray-800 md:text-lg">
-                ${item.price}
+                ${item.price * item.quantity}
                 </span>
               </div>
             </div>

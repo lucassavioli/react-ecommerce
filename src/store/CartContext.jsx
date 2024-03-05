@@ -41,8 +41,8 @@ function cartReducer(state, action) {
 
     const updatedItems = [...state.items];
 
-    if (existingCartItemIndex === 1) {
-      updatedItems.pop();
+    if (existingCartItem.quantity === 1) {
+      updatedItems.pop();  // TODO: maybe there is a bug here
     } else {
       const updatedItem = {
         ...existingCartItem,
@@ -103,7 +103,7 @@ export function CartContextProvider({ children }) {
   
   return (
     <CartContext.Provider value={cartContext}>{children}</CartContext.Provider>
-  );
+  );  
 }
 
 export default CartContext;
