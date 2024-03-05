@@ -36,7 +36,7 @@ export default function Cart() {
 
               <div class="flex justify-between gap-4 text-gray-500">
                 <span>Shipping</span>
-                <span>$4.99</span>
+                <span>$0.00</span>
               </div>
             </div>
 
@@ -45,7 +45,7 @@ export default function Cart() {
                 <span class="text-lg font-bold">Total</span>
 
                 <span class="flex flex-col items-end">
-                  <span class="text-lg font-bold">$134.98 USD</span>
+                  <span class="text-lg font-bold">${cartCtx.totalAmount} USD</span>
                   <span class="text-sm text-gray-500">including VAT</span>
                 </span>
               </div>

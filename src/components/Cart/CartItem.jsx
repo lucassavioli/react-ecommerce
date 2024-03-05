@@ -1,8 +1,10 @@
+import { Link } from "react-router-dom";
+
 export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
     return (
         <div class="flex flex-wrap gap-x-4 overflow-hidden rounded-lg border sm:gap-y-4 lg:gap-6">
-            <a
-              href="#"
+            <Link
+              to={`/products/${item.id}`}
               class="group relative block h-48 w-32 overflow-hidden bg-gray-100 sm:h-56 sm:w-40"
             >
               <img
@@ -11,16 +13,13 @@ export default function CartItem({ item, onIncrease, onDecrease, onDelete }) {
                 alt="Photo by Thái An"
                 class="h-full w-full object-cover object-center transition duration-200 group-hover:scale-110"
               />
-            </a>
+            </Link>
 
             <div class="flex flex-1 flex-col justify-between py-4">
               <div>
-                <a
-                  href="#"
-                  class="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl"
-                >
-                  {item.name}
-                </a>
+              <Link to={`/products/${item.id}`} class="mb-1 inline-block text-lg font-bold text-gray-800 transition duration-100 hover:text-gray-500 lg:text-xl">
+                {item.title}
+              </Link>
 
                 <span class="block text-gray-500">Size: S</span>
                 <span class="block text-gray-500">Color: White</span>
