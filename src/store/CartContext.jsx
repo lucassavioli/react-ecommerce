@@ -42,7 +42,7 @@ function cartReducer(state, action) {
     const updatedItems = [...state.items];
 
     if (existingCartItem.quantity === 1) {
-      updatedItems.pop();  // TODO: maybe there is a bug here
+      updatedItems.splice(existingCartItemIndex, 1);
     } else {
       const updatedItem = {
         ...existingCartItem,
