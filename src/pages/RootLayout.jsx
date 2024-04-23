@@ -5,7 +5,7 @@ import { CartContextProvider } from "../store/CartContext";
 
 export default function RootLayout() {
   return (
-    <div class="bg-white pb-6 sm:pb-8 lg:pb-12">
+    <div className="bg-white pb-6 sm:pb-8 lg:pb-12">
       <CartContextProvider>
         <Navbar />
         <Outlet />
